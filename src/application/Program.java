@@ -2,6 +2,8 @@ package application;
 
 import entities.Funcionario;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Scanner;
@@ -41,9 +43,14 @@ public class Program {
         System.out.println(Objects.equals(funcionario.getCpf(), funcionario1.getCpf()));
 
         System.out.println(funcionario.toString());
-        System.out.printf("Salario proporcional eh: %.2f %n",funcionario.salarioPorporcional(funcionario.getQtdDias()));
+        BigDecimal salarioFinal = new BigDecimal(funcionario.salarioPorporcional(funcionario.getQtdDias()));
+
+        System.out.println("Salario proporcional eh: " + salarioFinal);
+        System.out.println("Salario proporcional eh: " + salarioFinal.setScale(2, RoundingMode.CEILING));
 
         System.out.println(funcionario1.toString());
-        System.out.printf("Salario proporcional eh: %.2f %n",funcionario1.salarioPorporcional(funcionario1.getQtdDias()));
+        BigDecimal salarioFinal1 = new BigDecimal(funcionario1.salarioPorporcional(funcionario1.getQtdDias()));
+        System.out.println("Salario proporcional eh: " + salarioFinal1);
+        System.out.println("Salario proporcional eh: " + salarioFinal1.setScale(2, RoundingMode.CEILING));
     }
 }

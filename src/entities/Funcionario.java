@@ -1,5 +1,7 @@
 package entities;
 
+import java.math.BigDecimal;
+
 public class Funcionario {
 
     private String nome;
@@ -8,6 +10,9 @@ public class Funcionario {
     private int qtdDias;
 
     public static int qtdDiasMes = 30;
+
+    public Funcionario() {
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
